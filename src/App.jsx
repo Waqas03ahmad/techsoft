@@ -14,7 +14,7 @@ import {
   useColorScheme as useJoyColorScheme,
 } from "@mui/joy/styles";
 import { IconButton } from "@mui/joy";
-import Test from "./Test";
+// import Test from "./Test";
 
 export const ModeToggle = () => {
   const { mode, setMode } = useMaterialColorScheme();

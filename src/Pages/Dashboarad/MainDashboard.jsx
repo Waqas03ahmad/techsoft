@@ -1,27 +1,25 @@
 // import { makeStyles } from "@mui/styles";
 import "../../../public/waqas.jpg";
-import {
-  Box as MuiBox,
-  Button as MuiButton,
-  Grid as MuiGrid,
-  Rating as MuiRating,
-  Typography as MuiTypography,
-} from "@mui/material";
+import Resume from "../../../public/resume.pdf";
+import { Button, Grid, Box as MuiBox, Rating, Typography } from "@mui/material";
 import { useCallback } from "react";
 import StarIcon from "@mui/icons-material/Star";
 import Particles from "react-particles";
 import { experimentalStyled as styled } from "@mui/material/styles";
 import { loadSlim } from "tsparticles-slim";
 import Box from "@mui/joy/Box";
-
-import Typography from "@mui/joy/Typography";
-import Star from "@mui/icons-material/Star";
 import { MdDownloadForOffline } from "react-icons/md";
-const Item = styled(MuiBox)(({ theme }) => ({
+const Item = styled(Box)(({ theme }) => ({
   ...theme.typography.body2,
   color: theme.palette.text.secondary,
+  borderRadius: "5px",
 }));
 
+const Item2 = styled(Box)(({ theme }) => ({
+  ...theme.typography.body2,
+  color: theme.palette.text.secondary,
+  borderRadius: "5px",
+}));
 export default function Hook() {
   const particlesInit = useCallback(async (engine) => {
     await loadSlim(engine);
@@ -144,121 +142,82 @@ export default function Hook() {
             retina_detect: true,
           }}
         ></Particles>
-        <MuiGrid container spacing={3} columns={{ xs: 4, sm: 8, md: 12 }}>
-          <MuiGrid
+        <Grid
+          container
+          columns={12}
+          position={"absolute"}
+          sx={{ display: "flex", alignItems: "start" }}
+        >
+          <Grid
             item
-            container
-            display={"flex"}
-            justifyContent={"center"}
-            alignItems={"center"}
+            xs={12}
+            sm={7}
+            sx={{ textAlign: { xs: "center", sm: "start" } }}
           >
-            <MuiGrid item md={7}>
-              <Item>
-                <MuiBox
-                  sx={{
-                    textAlign: { sm: "left", xs: "center" },
-                    padding: { sm: "15px", xs: "20px" },
-                  }}
+            <Item>
+              <Box sx={{ paddingX: { xs: "30px", sm: "5px" }, mt: "10px" }}>
+                <Typography
+                  variant="h3"
+                  sx={{ display: { sm: "block", xs: "none" } }}
                 >
-                  <MuiTypography mb={2} variant="h3" fontWeight={700}>
-                    Lets scale your business
-                  </MuiTypography>
-                  <MuiTypography variant="h6">
-                    Hire professional FrontEnd developer who will boost up your
-                    business make 10X your previous state. With over 1years
-                    experience in FrontEnd & algorithum, we are your best
-                    client.
-                  </MuiTypography>
-                  <MuiButton
-                    variant="contained"
-                    color="primary"
-                    sx={{ width: "auto", fontSize: "16px", mt: "15px" }}
-                    endIcon={<MdDownloadForOffline />}
-                  >
-                    Resume
-                  </MuiButton>
-                  <MuiBox mt={2}>
-                    <MuiRating
-                      name="text-feedback"
-                      value={4.5}
-                      readOnly
-                      precision={0.5}
-                      emptyIcon={
-                        <StarIcon
-                          style={{ opacity: 0.55 }}
-                          fontSize="inherit"
-                        />
-                      }
-                    />
-                  </MuiBox>
-                  <Box
-                    sx={(theme) => ({
-                      display: "flex",
-                      textAlign: "center",
-                      alignSelf: "stretch",
-                      columnGap: 4.5,
-                      "& > *": {
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        flexWrap: "wrap",
-                        flex: 1,
-                      },
-                      [theme.breakpoints.up(834)]: {
-                        textAlign: "left",
-                        "& > *": {
-                          flexDirection: "row",
-                          gap: 1.5,
-                          justifyContent: "initial",
-                          flexWrap: "nowrap",
-                          flex: "none",
-                        },
-                      },
-                    })}
-                  >
-                    <div>
-                      <Typography
-                        fontSize="xl4"
-                        fontWeight="lg"
-                        endDecorator={
-                          <Star fontSize="xl4" sx={{ color: "warning.300" }} />
-                        }
-                      >
-                        4.5
-                      </Typography>
-                      <Typography textColor="text.secondary">
-                        Over <b>5k</b> positive <br /> customer reviews.
-                      </Typography>
-                    </div>
-                    <div>
-                      <Typography fontSize="xl4" fontWeight="lg">
-                        2+
-                      </Typography>
-                      <Typography textColor="text.secondary">
-                        Global <br /> Projects.
-                      </Typography>
-                    </div>
-                  </Box>
-                </MuiBox>
-              </Item>
-            </MuiGrid>
-            <MuiGrid item md={5}>
-              <Item>
-                <MuiBox
-                  sx={{ mt: { xs: "-100px" }, float: "right" }}
-                  position={"relative"}
+                  Lets scale your business with professional frontend developer
+                </Typography>
+                <Typography
+                  variant="h4"
+                  sx={{ display: { sm: "none", xs: "block" } }}
                 >
-                  <img
-                    src={"../../../public/hero1.png"}
-                    alt="My Team"
-                    style={{ position: "absalute" }}
+                  Lets scale your business with professional frontend developer
+                </Typography>
+                <Typography level="title-lg">
+                  Get professional frontEnd Developer who will scale up your
+                  business with creative, innovative, and modern user interface.
+                  I am Waqas Ahmad FrontEnd developer with 1 years of
+                  experience. I develope User interface as per your
+                  requirements. Let me to make your client happy. Check Resume
+                  for more details.
+                </Typography>
+                <Button
+                  variant="contained"
+                  endIcon={<MdDownloadForOffline />}
+                  sx={{ marginY: "15px" }}
+                  href={Resume}
+                  download={Resume}
+                >
+                  Resume
+                </Button>
+
+                <Box>
+                  <Rating
+                    name="text-feedback"
+                    value={4}
+                    readOnly
+                    precision={0.5}
+                    emptyIcon={
+                      <StarIcon style={{ opacity: 1 }} fontSize="inherit" />
+                    }
                   />
-                </MuiBox>
-              </Item>
-            </MuiGrid>
-          </MuiGrid>
-        </MuiGrid>
+                </Box>
+              </Box>
+            </Item>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={5}
+            sx={{ textAlign: { xs: "center", sm: "center", md: "center" } }}
+          >
+            <Item2>
+              <Box sx={{ maxWidth: "100%", height: "auto" }}>
+                <img
+                  src="../../../public/hero1.png"
+                  alt="Waqas ahmad"
+                  width={"60%"}
+                  height={"auto"}
+                />
+              </Box>
+            </Item2>
+          </Grid>
+        </Grid>
       </MuiBox>
     </>
   );

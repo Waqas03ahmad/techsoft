@@ -4,14 +4,16 @@ import { Avatar, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Unstable_Grid2";
 import AspectRatio from "@mui/joy/AspectRatio";
-import Button from "@mui/joy/Button";
 import Card from "@mui/joy/Card";
-import CardActions from "@mui/joy/CardActions";
 import CardContent from "@mui/joy/CardContent";
 import CardOverflow from "@mui/joy/CardOverflow";
-// import { Typography as Joytypo } from "@mui/joy/Typography";
-import { useState } from "react";
-import { Collapse } from "@mui/material";
+import { useEffect, useState } from "react";
+import Accordion from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Item = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -20,15 +22,20 @@ const Item = styled(Box)(({ theme }) => ({
 }));
 
 const About = () => {
-  const [expanded, setExpanded] = useState(false);
+  useEffect(() => {
+    AOS.init({ duration: 400 });
+  }, []);
+  const [expanded2, setExpanded2] = useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded2(isExpanded ? panel : false);
+  };
   const [expanded1, setExpanded1] = useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
+  const handleChange1 = (panel) => (event, isExpanded) => {
+    setExpanded1(isExpanded ? panel : false);
   };
-  const handleExpandClick1 = () => {
-    setExpanded1(!expanded1);
-  };
+
   return (
     <Box
       sx={{
@@ -37,7 +44,7 @@ const About = () => {
     >
       <Box sx={{ width: "100%" }}>
         <Grid container spacing={3}>
-          <Grid xs={12}>
+          <Grid xs={12} data-aos="zoom-in-down">
             <Item>
               <Box
                 sx={{
@@ -73,15 +80,14 @@ const About = () => {
                 >
                   <Typography variant="h3">About Me</Typography>
                   <Typography variant="body1">
-                    This is an example of applying a color overlay on an image
-                    in Material-UI.
+                    Wellcome, I am Waqas Ahmad FrontEnd developer with 1 years
+                    of experience using React.js
                   </Typography>
                 </Box>
               </Box>
             </Item>
           </Grid>
-
-          <Grid xs={12} sm={6}>
+          <Grid xs={12} sm={6} data-aos="zoom-in-right">
             <Item>
               <Card
                 sx={{
@@ -93,10 +99,10 @@ const About = () => {
                   "--icon-size": "100px",
                 }}
               >
-                <CardOverflow variant="solid" color="warning">
+                <CardOverflow variant="solid" color="primary">
                   <AspectRatio
                     variant="outlined"
-                    color="warning"
+                    color="primary"
                     ratio="1"
                     sx={{
                       m: "auto",
@@ -119,39 +125,112 @@ const About = () => {
                   level="title-lg"
                   sx={{ mt: "calc(var(--icon-size) / 2)" }}
                 >
-                  🎊 Waqas Ahmad 🎊
+                  Waqas Ahmad
                 </Typography>
-                <Typography sx={{opacity:"0.5",mt:'-10px'}} variant="h0">Front-End Developer</Typography>
+                <Typography sx={{ opacity: "0.5", mt: "-10px" }} variant="h0">
+                  Front-End Developer
+                </Typography>
                 <CardContent sx={{ maxWidth: "40ch" }}>
-                 innovative, task-driven professional with 1 year of experience in Front-End Development with react. I develop user interface wit
+                  innovative, task-driven professional with 1 year of experience
+                  in Front-End Development with react. I develop user interface
+                  with React, Material UI and bootstrap...
                 </CardContent>
-                <CardActions
-                  orientation="vertical"
-                  buttonFlex={1}
-                  sx={{
-                    "--Button-radius": "40px",
-                    width: "clamp(min(100%, 160px), 50%, min(100%, 200px))",
-                  }}
-                ></CardActions>
-                <Box>
-                  <Button
-                    variant="outline"
-                    color="warning"
-                    onClick={handleExpandClick1}
+                <div style={{ textAlign: "start", marginTop: "20px" }}>
+                  <Accordion
+                    expanded={expanded1 === "panel1"}
+                    onChange={handleChange1("panel1")}
+                    sx={{ backgroundColor: "transparent" }}
                   >
-                    {expanded1 ? "View Less" : "View More"}
-                  </Button>
-                  <Collapse in={expanded1} timeout="auto" unmountOnExit>
-                    <Typography variant="body1">
-                      This is the additional content that appears when the
-                      button is clicked.
-                    </Typography>
-                  </Collapse>
-                </Box>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1bh-content"
+                      id="panel1bh-header"
+                    >
+                      <Typography>React.js</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>
+                        I develope reusable UI components and manage state
+                        efficiently, resulting in fast and responsive web
+                        applications.
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                  <Accordion
+                    expanded={expanded1 === "panel2"}
+                    onChange={handleChange1("panel2")}
+                    sx={{ backgroundColor: "transparent" }}
+                  >
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel2bh-content"
+                      id="panel2bh-header"
+                    >
+                      <Typography>Material-UI</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>
+                        Material-UI is a popular React component library that
+                        implements Googles Material Design principles. It
+                        provides pre-designed UI components such as buttons,
+                        cards, and forms, enabling developers to create visually
+                        appealing and consistent interfaces.
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                  <Accordion
+                    expanded={expanded1 === "panel3"}
+                    onChange={handleChange1("panel3")}
+                    sx={{ backgroundColor: "transparent" }}
+                  >
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel3bh-content"
+                      id="panel3bh-header"
+                    >
+                      <Typography>Bootstrap</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>
+                        Bootstrap is a frontend framework for building
+                        responsive and mobile-first websites. It offers a set of
+                        CSS and JavaScript components that simplify the process
+                        of designing and styling web pages.
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                  <Accordion
+                    expanded={expanded1 === "panel4"}
+                    onChange={handleChange1("panel4")}
+                    sx={{ backgroundColor: "transparent" }}
+                  >
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel4bh-content"
+                      id="panel4bh-header"
+                    >
+                      <Typography>Jawascript</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>
+                        JavaScript is a programming language that enables
+                        interactive and dynamic behavior on web pages. It allows
+                        for actions such as user input validation, DOM
+                        manipulation, and asynchronous communication with
+                        servers.
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                </div>
               </Card>
             </Item>
           </Grid>
-          <Grid xs={12} sm={6}>
+          <Grid
+            xs={12}
+            sm={6}
+            marginTop={{ xs: "15px", sm: "0px" }}
+            data-aos="zoom-in-left"
+          >
             <Item>
               <Card
                 sx={{
@@ -163,10 +242,10 @@ const About = () => {
                   "--icon-size": "100px",
                 }}
               >
-                <CardOverflow variant="solid" color="warning">
+                <CardOverflow variant="solid" color="primary">
                   <AspectRatio
                     variant="outlined"
-                    color="warning"
+                    color="primary"
                     ratio="1"
                     sx={{
                       m: "auto",
@@ -180,7 +259,7 @@ const About = () => {
                   >
                     <Avatar
                       alt="Remy Sharp"
-                      src="../../../public/hero1.png"
+                      src="../../../public/hero3.jpg"
                       sx={{ width: 56, height: 56 }}
                     />
                   </AspectRatio>
@@ -189,36 +268,101 @@ const About = () => {
                   level="title-lg"
                   sx={{ mt: "calc(var(--icon-size) / 2)" }}
                 >
-                  🎊 Waqas Ahmad 🎊
+                  Waqas Ahmad
                 </Typography>
-                <Typography sx={{opacity:"0.5",mt:'-10px'}} variant="h0">Front-End Developer</Typography>
+                <Typography sx={{ opacity: "0.5", mt: "-10px" }} variant="h0">
+                  Front-End Developer
+                </Typography>
                 <CardContent sx={{ maxWidth: "40ch" }}>
-                  You just gain one Cookhat for Salad cooking. Share your
-                  achievement with your friends.
+                  Lets make your business scale up, make your client happy and
+                  develope your projects UI with professional frontEnd
+                  developer. Iet me work for you creatively.
                 </CardContent>
-                <CardActions
-                  orientation="vertical"
-                  buttonFlex={1}
-                  sx={{
-                    "--Button-radius": "40px",
-                    width: "clamp(min(100%, 160px), 50%, min(100%, 200px))",
-                  }}
-                ></CardActions>
-                <Box>
-                  <Button
-                    variant="outline"
-                    color="warning"
-                    onClick={handleExpandClick1}
+                <div style={{ textAlign: "start", marginTop: "20px" }}>
+                  <Accordion
+                    expanded={expanded2 === "panel1"}
+                    onChange={handleChange("panel1")}
+                    sx={{ backgroundColor: "transparent" }}
                   >
-                    {expanded1 ? "View Less" : "View More"}
-                  </Button>
-                  <Collapse in={expanded1} timeout="auto" unmountOnExit>
-                    <Typography variant="body1">
-                      This is the additional content that appears when the
-                      button is clicked.
-                    </Typography>
-                  </Collapse>
-                </Box>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1bh-content"
+                      id="panel1bh-header"
+                    >
+                      <Typography>ChatGPT</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>
+                        ChatGPT is an AI model developed by OpenAI for natural
+                        language processing tasks. It can be integrated into web
+                        applications to generate human-like text responses,
+                        provide recommendations, or assist users with tasks.
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                  <Accordion
+                    expanded={expanded2 === "panel2"}
+                    onChange={handleChange("panel2")}
+                    sx={{ backgroundColor: "transparent" }}
+                  >
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel2bh-content"
+                      id="panel2bh-header"
+                    >
+                      <Typography>Node Package Manager NPM</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>
+                        npm is a package manager for JavaScript that allows
+                        developers to install, manage, and share reusable code
+                        packages. It is commonly used in web development
+                        projects to integrate third-party libraries and tools.
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                  <Accordion
+                    expanded={expanded2 === "panel3"}
+                    onChange={handleChange("panel3")}
+                    sx={{ backgroundColor: "transparent" }}
+                  >
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel3bh-content"
+                      id="panel3bh-header"
+                    >
+                      <Typography>Python (InLearningPhase)</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>
+                        Python is a versatile programming language known for its
+                        simplicity and readability. It is often used in web
+                        development for backend logic, data processing, and
+                        scripting tasks.
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                  <Accordion
+                    expanded={expanded2 === "panel4"}
+                    onChange={handleChange("panel4")}
+                    sx={{ backgroundColor: "transparent" }}
+                  >
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel4bh-content"
+                      id="panel4bh-header"
+                    >
+                      <Typography>Prompt Engineering</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>
+                        Furthermore, prompt engineering plays a vital role in
+                        tailoring user experiences and generating meaningful
+                        content, ensuring engagement and satisfaction
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                </div>
               </Card>
             </Item>
           </Grid>
@@ -227,5 +371,4 @@ const About = () => {
     </Box>
   );
 };
-
 export default About;

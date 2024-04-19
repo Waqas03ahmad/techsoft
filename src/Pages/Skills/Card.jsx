@@ -10,6 +10,10 @@ import { SiCodesignal } from "react-icons/si";
 import { IoPaperPlaneOutline } from "react-icons/io5";
 import { GrUserAdmin } from "react-icons/gr";
 import { MdOutlineManageAccounts } from "react-icons/md";
+import { motion } from "framer-motion";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -18,6 +22,10 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function BasicCard() {
+  useEffect(() => {
+    AOS.init({ duration: 400 });
+  }, []);
+
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -76,28 +84,45 @@ export default function BasicCard() {
                 "Innovative, creative and professional Ui for your Ecommerce website and products...",
             },
           ].map((val, index) => (
-            <Grid xs={4} sm={4} md={4} key={index}>
-              <Item elevation={3} sx={{ "&:hover": { border: 0.3 } }}>
-                <Card sx={{ width: "auto" }}>
-                  <CardContent>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        mb: "10px",
-                      }}
-                    >
-                      {val.icon}
-                    </Box>
-                    <Typography variant="h5" component="div">
-                      {val.name}
-                    </Typography>
-                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                      {val.description}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Item>
+            <Grid xs={4} sm={4} md={4} key={index} data-aos="zoom-in">
+              <motion.div whileHover={{ scale: 1.02 }}>
+                <Item
+                  elevation={3}
+                  sx={{
+                    border: 0.5,
+                    borderColor: "transparent",
+                    "&:hover": {
+                      borderColor: (theme) =>
+                        theme.palette.mode === "dark" ? "white" : "gray",
+                    },
+                  }}
+                >
+                  <Card
+                    sx={{
+                      width: "auto",
+                      height: { xs: "200px", sm: "270px", lg: "220px" },
+                    }}
+                  >
+                    <CardContent>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "center",
+                          mb: "10px",
+                        }}
+                      >
+                        {val.icon}
+                      </Box>
+                      <Typography variant="h5" component="div">
+                        {val.name}
+                      </Typography>
+                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                        {val.description}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Item>
+              </motion.div>
             </Grid>
           ))}
         </Grid>

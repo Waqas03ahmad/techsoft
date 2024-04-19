@@ -6,13 +6,11 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -47,6 +45,11 @@ const Item = styled(Box)(({ theme }) => ({
   ...theme.typography.body2,
   textAlign: "center",
   color: theme.palette.text.secondary,
+}));
+
+const Myappbar = styled(AppBar)(({ theme }) => ({
+  ...theme.typography.body2,
+  // color: theme.palette.text.secondary,
 }));
 
 const drawerWidth = "330px";
@@ -112,7 +115,13 @@ function Index(props) {
     <div>
       <Toolbar>
         <Typography flexGrow={1}>Portfolio</Typography>
-        <img src="../../../public/waqas.jpg" width={35} height={35} style={{borderRadius:"50%"}} alt="waqas ahmad" />
+        <img
+          src="https://drive.google.com/file/d/1Av8oxbi4HmUdtPlHpaQSfFeMKKUFW4F-/view?usp=drive_link"
+          width={35}
+          height={35}
+          style={{ borderRadius: "50%" }}
+          alt="waqas ahmad"
+        />
       </Toolbar>
       <Divider />
       <List>
@@ -226,7 +235,16 @@ function Index(props) {
                 <Item>
                   <motion.div whileHover={{ scale: 1.1 }}>
                     <Button
-                      sx={{ width: "110px", height: "110px" }}
+                      sx={{
+                        width: "110px",
+                        height: "110px",
+                        border: 0.5,
+                        borderColor: "transparent",
+                        "&:hover": {
+                          borderColor: (theme) =>
+                            theme.palette.mode === "dark" ? "white" : "gray",
+                        },
+                      }}
                       component={NavLink}
                       to={val.path}
                     >
@@ -259,7 +277,7 @@ function Index(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" elevation={0}>
+      <Myappbar position="fixed" elevation={0}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -272,14 +290,14 @@ function Index(props) {
           </IconButton>
           <Box flexGrow={1}>
             <Typography variant="h6" noWrap component="div">
-              Portfolio
+              PortFolio
             </Typography>
           </Box>
           <Box>
             <ModeToggle />
           </Box>
         </Toolbar>
-      </AppBar>
+      </Myappbar>
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -337,10 +355,12 @@ function Index(props) {
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/about" element={<About />} />
           </Routes>
+
           <ScrollTop {...props}>
             <Fab size="small" aria-label="scroll back to top">
               <KeyboardArrowUpIcon />
             </Fab>
+            <Divider/>
           </ScrollTop>
         </Box>
       </ItemBox>

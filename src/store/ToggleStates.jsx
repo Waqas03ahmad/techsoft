@@ -9,10 +9,10 @@ const toggle = createSlice({
   name: "counter",
   initialState,
   reducers: {
-    toggleDrawer: (state) => {
+    viewOpen: (state) => {
       state.open = true;
     },
-    toggleclose: (state) => {
+    viewClose: (state) => {
       state.open = false;
     },
     tableButtonOpen: (state) => {
@@ -24,11 +24,7 @@ const toggle = createSlice({
   },
 });
 
-export const {
-  toggleDrawer,
-  toggleclose,
-  tableButtonOpen,
-  tableButttonClosed,
-} = toggle.actions;
+export const { viewOpen, viewClose, tableButtonOpen, tableButttonClosed } =
+  toggle.actions;
 
 export default toggle.reducer;
