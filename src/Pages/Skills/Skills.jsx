@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import "../../../public/waqas.jpg";
 import BasicCard from "./Card";
 
 

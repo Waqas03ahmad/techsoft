@@ -1,6 +1,4 @@
 // import { makeStyles } from "@mui/styles";
-import "../../../public/waqas.jpg";
-import Resume from "../../../public/resume.pdf";
 import { Button, Grid, Box as MuiBox, Rating, Typography } from "@mui/material";
 import { useCallback } from "react";
 import StarIcon from "@mui/icons-material/Star";
@@ -180,8 +178,6 @@ export default function Hook() {
                   variant="contained"
                   endIcon={<MdDownloadForOffline />}
                   sx={{ marginY: "15px" }}
-                  href={Resume}
-                  download={Resume}
                 >
                   Resume
                 </Button>
@@ -209,7 +205,7 @@ export default function Hook() {
             <Item2>
               <Box sx={{ maxWidth: "100%", height: "auto" }}>
                 <img
-                  src="../../../public/hero1.png"
+                  src="https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg"
                   alt="Waqas ahmad"
                   width={"60%"}
                   height={"auto"}

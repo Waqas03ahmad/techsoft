@@ -1,8 +1,5 @@
 import { Grid, Paper, Rating } from "@mui/material";
 import { experimentalStyled as styled } from "@mui/material/styles";
-import "../../../public/react.png";
-import "../../../public/MUI.png";
-import "../../../public/jawascript.png";
 import Avatar from "@mui/joy/Avatar";
 import Chip from "@mui/joy/Chip";
 import Box from "@mui/joy/Box";
@@ -20,28 +17,28 @@ const data = [
     name: "Html",
     discription:
       "Layout Design  Forms Design Tables Design  Html Media Html Graphics",
-    icon: "../../../public/html.png",
+    icon: "https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg",
     stars: 3,
   },
   {
     name: "CSS",
     discription:
       "Css Styling, Responsive design and Media Queries, MUI and Bootstrap, Tools and Resourses,",
-    icon: "../../../public/css.png",
+    icon: "https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg",
     stars: 3,
   },
   {
     name: "Jawascript",
     discription:
       "JawaScript Promeses, Jawascript Callbacks, Error handling, OOPs, Data structure and Algorithum",
-    icon: "../../../public/jawascript.png",
+    icon: "https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg",
     stars: 4,
   },
   {
     name: "React",
     discription:
       "React Basics, Reconcialiation, Hooks, Customization, SOLID prcess",
-    icon: "../../../public/react.png",
+    icon: "https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg",
     stars: 3.5,
   },
 
@@ -49,14 +46,14 @@ const data = [
     name: "Material UI",
     discription:
       "Responsiveness, Costomization, Styling, Interactive UI, Design-Driven",
-    icon: "../../../public/MUI.png",
+    icon: "https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg",
     stars: 4.5,
   },
   {
     name: "Bootstrap",
     discription:
       "Responsiveness, Costomization, Styling, Interactive UI, Design-Driven",
-    icon: "../../../public/bootstrap.png",
+    icon: "https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg",
     stars: 3,
   },
 
@@ -64,21 +61,21 @@ const data = [
     name: "NPM",
     discription:
       "Formik + Yup, reac-router-dom, react-redux-toolkit, MUI, apexChart ...",
-    icon: "../../../public/NPM.png",
+    icon: "https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg",
     stars: 3,
   },
   {
     name: "Python",
     discription:
       "Syntax and Basics, consept of OOPs, Data Structure and algorithum, Error handling, Data Analysis",
-    icon: "../../../public/python.png",
+    icon: "https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg",
     stars: 4,
   },
   {
     name: "ChatGPT",
     discription:
       "intelligent interactions, dynamic content generation providing personalized experience valuable insights...",
-    icon: "../../../public/Chatgpt.png",
+    icon: "https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg",
     stars: 3,
   },
 ];

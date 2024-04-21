@@ -1,9 +1,5 @@
-import "../../../public/waqas.jpg";
 import { Grid, Paper } from "@mui/material";
 import { experimentalStyled as styled } from "@mui/material/styles";
-import "../../../public/react.png";
-import "../../../public/MUI.png";
-import "../../../public/jawascript.png";
 import { motion } from "framer-motion";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -39,7 +35,8 @@ const Project = () => {
       name: "Admin Dashboard",
       discription:
         "Admin Dashboard is for administration but this is based on my basic information. Click view to know more",
-      photo: "../../../public/Dashboard.jpg",
+      photo:
+        "https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg",
       video: "https://youtu.be/84Zs8KoXT2o?si=4SV1wyDeU_zJAUHL",
     },
     {
@@ -48,7 +45,8 @@ const Project = () => {
       name: "Services",
       discription:
         "We develope user interfaces UI for your projects professoinally and creatively with React and other libraries...",
-      photo: "../../../public/services.jpg",
+      photo:
+        "https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg",
       video: "https://youtu.be/usaOHOmsVwM?si=JBQ7pkHvb0Xwa5VL",
     },
     {
@@ -57,7 +55,8 @@ const Project = () => {
       name: "Languages/Technology",
       discription:
         "Jawascript, Python, Django, CSS, Html, Reactjs, Material UI, Bootstrap, and other more AI tools like ChatGPT, coplit etc..",
-      photo: "../../../public/languages.jpg",
+      photo:
+        "https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg",
       video: "https://youtu.be/L2TrVmpfbzs?si=uF006MDSZYQ6W3p8",
     },
     {
@@ -66,7 +65,8 @@ const Project = () => {
       name: "Reviews",
       discription:
         "The Reviews have shown in the website is for the demo purpose of including reviews functionality in app..",
-      photo: "../../../public/reviews.jpg",
+      photo:
+        "https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg",
       video: "https://youtu.be/_1AFWOVwo6g?si=uK7Y3YiwcQ7nv0Cl",
     },
 
@@ -76,7 +76,8 @@ const Project = () => {
       name: "About",
       discription:
         "About page contained basic information about me. Here is what and how we solve your poblems professionally...",
-      photo: "../../../public/about.jpg",
+      photo:
+        "https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg",
       video: "https://youtu.be/_M0FEREzwaw?si=BcoUBSZDyRsZHctU",
     },
     {
@@ -85,7 +86,8 @@ const Project = () => {
       name: "Projects",
       discription:
         "Projects are already listed about all worked I have done, you can check anything just click on view button..",
-      photo: "../../../public/project.jpg",
+      photo:
+        "https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg",
       video: "../../../public/project.wmv",
     },
   ]);
@@ -174,7 +176,6 @@ const Project = () => {
                         }}
                         aria-labelledby="modal-modal-title"
                         aria-describedby="modal-modal-description"
-                        
                       >
                         <Box
                           sx={style}

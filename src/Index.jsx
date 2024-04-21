@@ -116,7 +116,7 @@ function Index(props) {
       <Toolbar>
         <Typography flexGrow={1}>Portfolio</Typography>
         <img
-          src="https://drive.google.com/file/d/1Av8oxbi4HmUdtPlHpaQSfFeMKKUFW4F-/view?usp=drive_link"
+          src='https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg'
           width={35}
           height={35}
           style={{ borderRadius: "50%" }}
@@ -178,7 +178,7 @@ function Index(props) {
                 <Box justifyContent={"center"} display={"flex"}>
                   <Avatar
                     alt="Remy Sharp"
-                    src="../../../public/waqas.jpg"
+                    src="https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg"
                     sx={{ width: 130, height: 130 }}
                   />
                 </Box>

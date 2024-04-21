@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import "../../../public/waqas.jpg";
 import { Avatar, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Unstable_Grid2";
@@ -54,7 +53,7 @@ const About = () => {
                   width: "100%",
                   height: "30vh",
                   alignItems: "center",
-                  backgroundImage: `url("../../../public/aboutme.jpg")`,
+                  backgroundImage: `url(https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg)`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
@@ -116,7 +115,7 @@ const About = () => {
                   >
                     <Avatar
                       alt="Remy Sharp"
-                      src="../../../public/waqas.jpg"
+                      src="https://res.cloudinary.com/dt6z3lqko/image/upload/v1713669246/waqas_x0ouxy.jpg"
                       sx={{ width: 56, height: 56 }}
                     />
                   </AspectRatio>
